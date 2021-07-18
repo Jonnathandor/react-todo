@@ -4,7 +4,7 @@ import './Todo.css';
 
 function Todo({todo}) {
     return (
-        <List>
+        <List className="todo__list">
             <ListItem button>
                 <ListItemText primary="Todo" secondary={todo}/>
             </ListItem>
