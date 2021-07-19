@@ -18,12 +18,20 @@ const useStyles = makeStyles((theme) => ({
 function Todo({todo}) {
     const classes = useStyles();
     const [open, setOpen] = useState(false)
+    const [input, setInput] = useState('');
     const handleOpen = () => {
 
     };
 
     const handleClose = () => {
         setOpen(false)
+    }
+
+    const updateTodo = () => {
+        db.collection('todos').doc(todo.id).set({
+            todo: input
+        }, { merge: true });
+        setOpen(false);
     }
     return (
         <>
@@ -33,7 +41,11 @@ function Todo({todo}) {
         >
             <div className={classes.paper}>
                 <h1>Open</h1>
-                <button onClick={e => setOpen(false)}></button>
+                <input
+                value={input}
+                placeholder={todo.todo}
+                onChange={event => setInput(event.target.value)}/>
+                <button onClick={updateTodo}>Update Todo</button>
             </div>
         </Modal>
         <List className="todo__list">
