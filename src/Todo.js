@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
         width: 400,
+        left: '40%',
+        top: '50%',
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
@@ -52,7 +54,7 @@ function Todo({todo}) {
             <ListItem button>
                 <ListItemText primary="Todo" secondary={todo.todo}/>
                 <Button onClick={e => setOpen(true)}>Edit</Button>
-                <Button onClick={event => db.collection('todos').doc(todo.id).delete()}>DELETE ME</Button>
+                <Button onClick={event => db.collection('todos').doc(todo.id).delete()}>DELETE</Button>
             </ListItem>
         </List>
         </>

@@ -37,13 +37,14 @@ function App() {
         <Button disabled={!input} type="submit" onClick={addTodo} variant="contained" color="primary">Add Todo</Button>
       </form>
 
-      <ul>
+      <div className="list">
         {todos.map(todo => {
           return <Todo
             todo={todo}
           />
         })}
-      </ul>
+      </div>
+ 
     </div>
   );
 }
