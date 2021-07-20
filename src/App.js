@@ -26,6 +26,7 @@ function App() {
 
     setInput('');
   }
+
   return (
     <div className="App">
       <h1>My Proto TODO app</h1>
@@ -38,9 +39,11 @@ function App() {
       </form>
 
       <div className="list">
-        {todos.map(todo => {
+        {todos.map((todo, i) => {
+  
           return <Todo
             todo={todo}
+            id={i}
           />
         })}
       </div>
